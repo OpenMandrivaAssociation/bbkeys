@@ -1,6 +1,6 @@
 %define name	bbkeys
 %define version 0.8.6
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary:	Bbkeys, a configurable key-grabber for blackbox
 Name:		%{name}
@@ -9,12 +9,12 @@ Release:	%{release}
 License:	GPL
 Group:		Graphical desktop/Other
 Source0:	%name-%version.tar.bz2
-Source1:	%{name}-16x16.png.bz2
-Source2:	%{name}-32x32.png.bz2
-Source3:	%{name}-48x48.png.bz2
+Source1:	%{name}-16x16.png
+Source2:	%{name}-32x32.png
+Source3:	%{name}-48x48.png
 URL:		http://bbkeys.sourceforge.net/
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 
 %description
 Bbkeys is a configurable key-grabber designed for the blackbox window 
@@ -40,33 +40,25 @@ mkdir -p $RPM_BUILD_ROOT%_prefix
 
 %makeinstall
 
-# Menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat >$RPM_BUILD_ROOT%{_menudir}/%{name} <<EOF
-?package(%{name}): command="%{_bindir}/%{name}" needs="x11" \
-icon="%{name}.png" section="System/Configuration/Other" \
-title="Bbkeys" longtitle="Bbkeys" xdg="true"
-EOF
-
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=%{name}
-Comment=%{Summary}
+Comment=Bbkeys, a configurable key-grabber for blackbox
 Exec=%{name} -c
 Icon=%{name}
 Terminal=false
 Type=Application
-Categories=X-MandrivaLinux-System-Configuration-Other;Settings;
+Categories=Settings;DesktopSettings;
 EOF
   
 #icon
 install -d $RPM_BUILD_ROOT/%{_iconsdir}
 install -d $RPM_BUILD_ROOT/%{_liconsdir}
 install -d $RPM_BUILD_ROOT/%{_miconsdir}
-bzcat %{SOURCE1} > $RPM_BUILD_ROOT/%{_miconsdir}/%{name}.png
-bzcat %{SOURCE2} > $RPM_BUILD_ROOT/%{_iconsdir}/%{name}.png
-bzcat %{SOURCE3} > $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
+install %{SOURCE1}  $RPM_BUILD_ROOT/%{_miconsdir}/%{name}.png
+install %{SOURCE2}  $RPM_BUILD_ROOT/%{_iconsdir}/%{name}.png
+install %{SOURCE3}  $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
 
 rm -fr $RPM_BUILD_ROOT%_prefix/doc
 
@@ -85,7 +77,6 @@ rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 %doc README ChangeLog AUTHORS TODO COPYING INSTALL
 %attr(755,root,root) 
 %{_bindir}/*
-%{_menudir}/*
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
@@ -93,4 +84,3 @@ rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 %{_mandir}/man1/*
 %{_mandir}/man5/*
 %_datadir/applications/*
-
