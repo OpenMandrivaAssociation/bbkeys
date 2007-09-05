@@ -1,6 +1,6 @@
 %define name	bbkeys
-%define version 0.8.6
-%define release %mkrel 6
+%define version 0.9.0
+%define release %mkrel 1
 
 Summary:	Bbkeys, a configurable key-grabber for blackbox
 Name:		%{name}
@@ -8,7 +8,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Graphical desktop/Other
-Source0:	%name-%version.tar.bz2
+Source0:	http://heanet.dl.sourceforge.net/sourceforge/bbkeys/%name-%version.tar.gz
 Source1:	%{name}-16x16.png
 Source2:	%{name}-32x32.png
 Source3:	%{name}-48x48.png
