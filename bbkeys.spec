@@ -14,7 +14,7 @@ Source2:	%{name}-32x32.png
 Source3:	%{name}-48x48.png
 URL:		http://bbkeys.sourceforge.net/
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	X11-devel
+BuildRequires:	X11-devel blackbox-devel
 
 %description
 Bbkeys is a configurable key-grabber designed for the blackbox window 
@@ -29,7 +29,7 @@ file, or by using the gui configuration tool bbconf.
 %setup -q
 
 %build
-%configure
+%configure2_5x
 make
 
 %install
