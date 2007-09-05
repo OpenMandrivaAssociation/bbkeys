@@ -74,13 +74,13 @@ rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 
 %files -n %{name}
 %defattr(-,root,root)
-%doc README ChangeLog AUTHORS TODO COPYING INSTALL
+%doc README ChangeLog AUTHORS TODO INSTALL
 %attr(755,root,root) 
 %{_bindir}/*
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-%{_datadir}/bbtools/*
+%{_datadir}/%{name}
 %{_mandir}/man1/*
 %{_mandir}/man5/*
 %_datadir/applications/*
