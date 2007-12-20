@@ -13,6 +13,7 @@ Source1:	%{name}-16x16.png
 Source2:	%{name}-32x32.png
 Source3:	%{name}-48x48.png
 URL:		http://bbkeys.sourceforge.net/
+BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	X11-devel blackbox-devel
 
 %description
