@@ -14,7 +14,7 @@ Source2:	%{name}-32x32.png
 Source3:	%{name}-48x48.png
 URL:		http://bbkeys.sourceforge.net/
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	X11-devel blackbox-devel
+BuildRequires:	libx11-devel blackbox-devel
 
 %description
 Bbkeys is a configurable key-grabber designed for the blackbox window 
@@ -30,15 +30,12 @@ file, or by using the gui configuration tool bbconf.
 
 %build
 %configure2_5x
-make
+%make
 
 %install
 rm -fr $RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%_prefix
-
-%makeinstall
+%makeinstall_std
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
