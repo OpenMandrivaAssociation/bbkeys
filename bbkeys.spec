@@ -1,6 +1,6 @@
 %define name	bbkeys
 %define version 0.9.1
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary:	Bbkeys, a configurable key-grabber for blackbox
 Name:		%{name}
