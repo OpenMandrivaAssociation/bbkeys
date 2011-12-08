@@ -71,7 +71,7 @@ rm -fr $RPM_BUILD_ROOT%_prefix/doc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-rm -rf $RPM_BUILD_DIR/%{name}-%{version}
+rm -rf %{_builddir}/%{name}-%{version}
 
 %files -n %{name}
 %defattr(-,root,root)
