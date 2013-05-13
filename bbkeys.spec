@@ -14,7 +14,7 @@ Source2:	%{name}-32x32.png
 Source3:	%{name}-48x48.png
 URL:		http://bbkeys.sourceforge.net/
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	libx11-devel blackbox-devel
+BuildRequires:	pkgconfig(x11) blackbox-devel
 
 %description
 Bbkeys is a configurable key-grabber designed for the blackbox window 
