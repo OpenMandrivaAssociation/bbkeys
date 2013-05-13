@@ -1,6 +1,6 @@
 %define name	bbkeys
 %define version 0.9.1
-%define release %mkrel 3
+%define release  4
 
 Summary:	Bbkeys, a configurable key-grabber for blackbox
 Name:		%{name}
@@ -13,7 +13,6 @@ Source1:	%{name}-16x16.png
 Source2:	%{name}-32x32.png
 Source3:	%{name}-48x48.png
 URL:		http://bbkeys.sourceforge.net/
-BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	pkgconfig(x11) blackbox-devel
 
 %description
