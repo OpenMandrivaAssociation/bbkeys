@@ -2,7 +2,7 @@
 %define version 0.9.1
 %define release  4
 
-Summary:	Bbkeys, a configurable key-grabber for blackbox
+Summary:	, a configurable key-grabber for blackbox
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
