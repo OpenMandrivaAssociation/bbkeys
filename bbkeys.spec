@@ -1,11 +1,7 @@
-%define name	bbkeys
-%define version 0.9.1
-%define release  4
-
-Summary:	, a configurable key-grabber for blackbox
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Summary:	A configurable key-grabber for blackbox
+Name:		bbkeys
+Version:	0.9.1
+Release:	5
 License:	MIT
 Group:		Graphical desktop/Other
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/bbkeys/%name-%version.tar.gz
@@ -32,8 +28,6 @@ file, or by using the gui configuration tool bbconf.
 %make
 
 %install
-rm -fr $RPM_BUILD_ROOT
-
 %makeinstall_std
 
 mkdir -p %{buildroot}%{_datadir}/applications
@@ -49,31 +43,18 @@ Categories=Settings;DesktopSettings;
 EOF
   
 #icon
-install -d $RPM_BUILD_ROOT/%{_iconsdir}
-install -d $RPM_BUILD_ROOT/%{_liconsdir}
-install -d $RPM_BUILD_ROOT/%{_miconsdir}
-install %{SOURCE1}  $RPM_BUILD_ROOT/%{_miconsdir}/%{name}.png
-install %{SOURCE2}  $RPM_BUILD_ROOT/%{_iconsdir}/%{name}.png
-install %{SOURCE3}  $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
+install -d %{buildroot}/%{_iconsdir}
+install -d %{buildroot}/%{_liconsdir}
+install -d %{buildroot}/%{_miconsdir}
+install %{SOURCE1}  %{buildroot}/%{_miconsdir}/%{name}.png
+install %{SOURCE2}  %{buildroot}/%{_iconsdir}/%{name}.png
+install %{SOURCE3}  %{buildroot}/%{_liconsdir}/%{name}.png
 
-rm -fr $RPM_BUILD_ROOT%_prefix/doc
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
+rm -fr %{buildroot}%{_prefix}/doc
 
 %clean
-rm -rf $RPM_BUILD_ROOT
-rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 
 %files -n %{name}
-%defattr(-,root,root)
 %doc README ChangeLog AUTHORS TODO INSTALL
 %attr(755,root,root) 
 %{_bindir}/*
