@@ -1,7 +1,7 @@
 Summary:	A configurable key-grabber for blackbox
 Name:		bbkeys
 Version:	0.9.1
-Release:	5
+Release:	6
 License:	MIT
 Group:		Graphical desktop/Other
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/bbkeys/%name-%version.tar.gz
