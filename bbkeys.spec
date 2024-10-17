@@ -8,7 +8,7 @@ Source0:	http://heanet.dl.sourceforge.net/sourceforge/bbkeys/%name-%version.tar.
 Source1:	%{name}-16x16.png
 Source2:	%{name}-32x32.png
 Source3:	%{name}-48x48.png
-URL:		http://bbkeys.sourceforge.net/
+URL:		https://bbkeys.sourceforge.net/
 BuildRequires:	pkgconfig(x11) blackbox-devel
 
 %description
